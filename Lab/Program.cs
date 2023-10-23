@@ -178,7 +178,7 @@ namespace Lab
 
         static void DoHomework2()
         {
-            Console.WriteLine("Домашнее задание 2 - заполняем плейлист и сравниваем две первые песни");
+            Console.WriteLine("Домашнее задание 2 - заполняем плейлист и сравниваем две первые песнив");
 
             Song song1 = new Song();
             Song song2 = new Song();
@@ -211,11 +211,11 @@ namespace Lab
         {
             Console.WriteLine("Лабораторная работа 7\n");
 
-            //DoExercise1();
-            //DoExercise2();
-            //DoExercise3();
-            //DoExercise4();
-            //DoHomework1();
+            DoExercise1();
+            DoExercise2();
+            DoExercise3();
+            DoExercise4();
+            DoHomework1();
             DoHomework2();
 
             Console.ReadKey();
