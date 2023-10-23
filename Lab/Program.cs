@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -102,12 +103,12 @@ namespace Lab
             Console.WriteLine($"Ваша строка: {ReverseString(text)}");
         }
 
-        static void DoExercise3(string[] link)
+        static void DoExercise3()
         {
             string output_file = "output_file.txt";
 
-            Console.Write("Введите название входного файла: ");
-            string input_file = Console.ReadLine();
+            Console.Write("Введите название входного файла без .txt на конце: ");
+            string input_file = Console.ReadLine() + ".txt";
 
             if (File.Exists(input_file))
             {
@@ -121,13 +122,101 @@ namespace Lab
 
             Console.ReadKey();
         }
+
+        static void CheckIFormatable(object obj)
+        {
+            if (obj is IFormattable)
+            {
+                IFormattable formattable_obj = obj as IFormattable;
+                if (formattable_obj != null)
+                {
+                    Console.WriteLine("Обьект совмещается с данным типом\n");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Обьект не совмещается с данным типом\n");
+            }
+        }
+
+        static void DoExercise4()
+        {
+            Console.WriteLine("Упражнение 4\n");
+
+            object num = 34;
+            CheckIFormatable(num);
+        }
+
+        static void DoHomework1()
+        {
+            Console.WriteLine("Домашнее задание 1\n");
+
+            string input_file = "People.txt";
+            string output_file = "Email.txt";
+            List<string> file_lines = File.ReadAllLines(input_file).ToList();
+            if(File.Exists(input_file))
+            {
+                foreach (var file_line in file_lines)
+                {
+                    var splitFileLine = file_line.Split(new[] { "#" }, StringSplitOptions.None);
+
+                    string fio = splitFileLine[0];
+                    string mail = splitFileLine[1];
+                    using (var str1 = new StreamWriter(output_file, true))
+                    {
+                        str1.WriteLine(mail);
+                    }
+                }
+                Console.WriteLine("Всё чики-пуки перенеслось\n");
+            }
+            else
+            {
+                Console.WriteLine("Ничего не получилось\n");
+            }
+
+        }
+
+        static void DoHomework2()
+        {
+            Console.WriteLine("Домашнее задание 2 - заполняем плейлист и сравниваем две первые песни");
+
+            Song song1 = new Song();
+            Song song2 = new Song();
+            Song song3 = new Song();
+            Song song4 = new Song();
+            List<Song> list = new List<Song>() {song1, song2, song3, song4};
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i].FillName();
+                list[i].FillAuthor();
+                if (i != 0)
+                {
+                    list[i].previous = list[i - 1];
+                }
+                list[i].PrintTitle();
+
+            }
+
+            if (list[1].Equals(list[0]))
+            {
+                Console.WriteLine("Это одна песня");
+            }
+            else
+            {
+                Console.WriteLine("Это разные песни");
+            }
+        }
+
         static void Main(string[] link)
         {
             Console.WriteLine("Лабораторная работа 7\n");
 
             //DoExercise1();
             //DoExercise2();
-            //DoExercise3(link);
+            //DoExercise3();
+            //DoExercise4();
+            //DoHomework1();
+            DoHomework2();
 
             Console.ReadKey();
         }

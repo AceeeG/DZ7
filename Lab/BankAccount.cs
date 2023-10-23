@@ -24,6 +24,7 @@ namespace Lab
         /// <param name="type"></param>
         public BankAccount(BankType type)
         {
+            id_counter++;
             id = id_counter;
             id_counter++;
             balance = 0.0;
