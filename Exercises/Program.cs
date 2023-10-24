@@ -14,9 +14,9 @@ namespace Exercises
             task.Print();
             for (int i = 0; i < employees.Count; i++)
             {
-                if (employees[i].name == task.GetEmployeeName())
+                if (employees[i].Name() == task.GetEmployeeName())
                 {
-                    if (employees[i].boss.name == task.GetBossName ()) Console.WriteLine("Он будет ее делать");
+                    if (employees[i].BossName() == task.GetBossName ()) Console.WriteLine("Он будет ее делать");
                     else Console.WriteLine("Он не будет ее делать");
                 }
             }
@@ -46,10 +46,10 @@ namespace Exercises
             List <Person> System = new List<Person>() {ilshat, ivanich, ilya, vitya, zhenya};
             List<Person> Developement = new List<Person>() {sergey, laysan, marat, dina, ildar, anton}; 
 
-            Task task1 = new Task(ivanich.name, Department.Системщик, "Настроить систему", zhenya.name);
-            Task task2 = new Task(ilshat.name, Department.Системщик, "Устранение неполадок", ivanich.name);
-            Task task3 = new Task(laysan.name, Department.Разработчик, "Подключить базу данных", anton.name);
-            Task task4 = new Task(sergey.name, Department.Разработчик, "Разработать приложение", laysan.name);
+            Task task1 = new Task(ivanich.Name(), Department.Системщик, "Настроить систему", zhenya.Name());
+            Task task2 = new Task(ilshat.Name(), Department.Системщик, "Устранение неполадок", ivanich.Name());
+            Task task3 = new Task(laysan.Name(), Department.Разработчик, "Подключить базу данных", anton.Name());
+            Task task4 = new Task(sergey.Name(), Department.Разработчик, "Разработать приложение", laysan.Name());
             Console.WriteLine("Выберите задание\n" +
             "<Настроить систему> - нажмите 1\n" +
             "<Устранение неполадок> - нажмите 2\n" +

@@ -16,9 +16,9 @@ namespace Exercises
 
     internal class Person
     {
-        public string name { get; set; }
-        public Department post { get; set; }
-        public Person boss { get; set; }
+        private string name { get; set; }
+        private Department post { get; set; }
+        private Person boss { get; set; }
 
         public Person(string name, Department post, Person boss)
         {
@@ -33,6 +33,13 @@ namespace Exercises
             this.post = post;
         }
 
-
+        public string Name()
+        { 
+            return name;
+        }
+        public string BossName()
+        {
+            return boss.name;
+        }
     }
 }
