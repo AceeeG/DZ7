@@ -23,6 +23,7 @@ namespace Exercises
         }
 
         static void Main(string[] args)
+
         {
             Person semen = new Person("Сёмен", Department.Начальство);
             Person rashid = new Person("Рашид", Department.Начальство, semen);

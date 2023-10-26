@@ -197,7 +197,7 @@ namespace Lab
 
             }
 
-            if (list[1].Equals(list[0]))
+            if (list[1].Equals(list[1].previous))
             {
                 Console.WriteLine("Это одна песня");
             }
