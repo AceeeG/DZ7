@@ -120,7 +120,6 @@ namespace Lab
                 Console.WriteLine($"Файл {input_file} не найден!");
             }
 
-            Console.ReadKey();
         }
 
         static void CheckIFormatable(object obj)
